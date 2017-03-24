@@ -13,5 +13,4 @@ namespace GarbageCollection.DotNetParser.AcceptanceTests.src.Pages
         Double GetResult();
     }
 
-
 }

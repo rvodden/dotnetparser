@@ -68,7 +68,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -86,6 +88,7 @@
     <Compile Include="src\Pages\ParserPage.cs" />
     <Compile Include="src\MockParserTest.cs" />
     <Compile Include="src\Steps\ParserSteps.cs" />
+    <Compile Include="src\ChromeParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

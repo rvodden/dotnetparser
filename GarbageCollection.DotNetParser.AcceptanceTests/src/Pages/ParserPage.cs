@@ -7,13 +7,16 @@ namespace GarbageCollection.DotNetParser.AcceptanceTests.src.Pages
     class ParserPage : AbstractPage, IParserPage
     {
         // This should be a property which we can specify somewhere
-        private const String MyUrl = @"http://localhost:8080/parser";
+        private const String MyUrl = @"http://localhost:5135/";
 
         [FindsBy(How = How.Id, Using = "form:expression")]
         IWebElement formExpression;
 
         [FindsBy(How = How.Id, Using = "form:submit")]
         IWebElement submitButton;
+
+        [FindsBy(How = How.Id, Using = "form:result")]
+        IWebElement resultField;
 
         public ParserPage(IWebDriver webDriver) : base(webDriver, MyUrl)
         {
@@ -22,12 +25,15 @@ namespace GarbageCollection.DotNetParser.AcceptanceTests.src.Pages
 
         void IParserPage.Calculate(string expression)
         {
-            throw new NotImplementedException();
+            formExpression.Clear();
+            formExpression.SendKeys(expression);
+            submitButton.Submit();
+
         }
 
         double IParserPage.GetResult()
         {
-            throw new NotImplementedException();
+            return Double.Parse(resultField.Text);
         }
     }
 }

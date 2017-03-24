@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Mathematical Parser";
+    ViewData["Result"] = 5.0d;
+}
+<form>
+    <table columns="4">
+        <tr>
+            <td><label>Expression:</label></td>
+            <td><input type="text" id="form:expression" /></td>
+            @{ if (ViewData["Result"] != null) { 
+                <td> equals </td>
+                <td>@ViewData["Result"]</td>
+
+            } }
+        </tr>
+    </table>
+    <input type="submit" id="form:submit" />
+</form>
